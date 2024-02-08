@@ -1,0 +1,15 @@
+import spacy
+
+# Load English tokenizer, tagger, parser, NER, and word vectors
+nlp = spacy.load("en_core_web_sm")
+
+# Process some text
+text = "Apple is looking at buying U.K. startup for $1 billion"
+doc = nlp(text)
+
+# Extract named entities
+entities = [(entity.text, entity.label_) for entity in doc.ents]
+
+print("Named Entities:")
+for entity, label in entities:
+    print(f"{entity}: {label}")
